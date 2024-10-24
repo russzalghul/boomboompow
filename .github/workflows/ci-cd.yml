@@ -24,11 +24,10 @@ jobs:
         push: true
         tags: yourusername/your-app-name:latest
 
-    - name: Deploy to Kubernetes
-      uses: manusa/actions-setup-kubectl@v1
+    - name: Set up kubectl
+      uses: azure/setup-kubectl@v3
       with:
-        version: 'latest'
-        config: ${{ secrets.KUBE_CONFIG }}
+        version: 'latest'  # Or specify a version you need
 
     - name: Set kubectl context
       run: kubectl config use-context your-context-name
